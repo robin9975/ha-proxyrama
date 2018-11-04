@@ -1,0 +1,23 @@
+version: '2'
+services:
+
+    test-server-1:
+        build: ./test-server
+        container_name: test-server-1
+
+    test-server-2:
+        build: ./test-server
+        container_name: test-server-2
+
+    test-server-3:
+        build: ./test-server
+        container_name: test-server-3
+
+    proxy:
+        build: ./haproxy
+        container_name: proxy
+        ports:
+          - "80:80"
+          - "81:81"
+          - "9000:9000"
+
